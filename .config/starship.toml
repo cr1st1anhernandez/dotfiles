@@ -1,0 +1,59 @@
+scan_timeout = 60
+add_newline = false
+
+[line_break]
+disabled = true
+
+[directory]
+style = "bold #029891"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bold #f7e255"
+
+[status]
+disabled = false
+format = "[$symbol $status]($style) "
+not_found_symbol = ""
+not_executable_symbol = ""
+sigint_symbol = "ﭦ"
+map_symbol = true
+style = "bold #ff5560"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+style = "bold #ff79c6"
+
+[package]
+format = "[$symbol$version]($style) "
+symbol = " "
+style = "bold #3e3226"
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = " "
+style = "bold #f7e255"
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+style = "bold #03c0b7"
+
+[php]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "bold #0A87D7"
+
+[java]
+format = "[${symbol}(${version} )]($style)"
+symbol = " "
+style = "bold #ff5560"
+
+[rust]
+format = "[$symbol($version )]($style)"
+
+[hostname]
+style = "bold #af77ff"
+
+[username]
+format = "[$user]($style) on "
+style_user = "bold #3ba5b8"

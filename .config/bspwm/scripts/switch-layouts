@@ -1,0 +1,34 @@
+#!/bin/bash
+CURRENT=$(cat $HOME/.config/bspwm/scripts/current-layout)
+
+# Switch layouts
+
+# Tiled
+if [[ $CURRENT == "T" ]]; then
+        bsp-layout set tiled
+        echo "M" > $HOME/.config/bspwm/scripts/current-layout
+fi
+
+# Monocle
+if [[ $CURRENT == "M" ]]; then
+        bsp-layout set monocle
+        echo "G" > $HOME/.config/bspwm/scripts/current-layout
+fi
+
+# Grid
+if [[ $CURRENT == "G" ]]; then
+        bsp-layout set grid
+        echo "W" > $HOME/.config/bspwm/scripts/current-layout
+fi
+
+# Wide
+if [[ $CURRENT == "W" ]]; then
+        bsp-layout set wide
+        echo "E" > $HOME/.config/bspwm/scripts/current-layout
+fi
+
+# Even
+if [[ $CURRENT == "E" ]]; then
+        bsp-layout set even
+        echo "T" > $HOME/.config/bspwm/scripts/current-layout
+fi

@@ -1,0 +1,64 @@
+#! /bin/sh
+# Start sxhkd if it is not already running
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# border settings
+bspc config border_width         0
+bspc config window_gap          10
+
+# tiling settings
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# focus settings
+bspc config focus_follows_pointer true
+bspc config pointer_follows_focus true
+# bspc config wrap_around true
+# bspc config remove_disabled_monitors true
+# bspc config merge_overlapping_monitors true
+#bspc monitor focused -s next -follow
+
+# bspwm rules
+bspc loating
+bspc rule -loating
+bspc rule -n
+bspc ff
+bspc bove
+bspc 920x1080+0+0
+bspc config external_rules_command "$HOME/.config/bspwm/scripts/external-rules"
+
+#xrandr --output eDP --primary --mode 1920x1080 --pos 0x1080
+#xrandr --output eDP --mode 1920x1080 --pos 0x1080 --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --left-of eDP
+if [[ $(xrandr -q | grep 'HDMI-A-0 connected') ]]; then
+    bspc monitor HDMI-A-0 -d 1 2 3 4 5
+    bspc monitor eDP -d 6 7 8 9 10
+else
+    bspc monitor eDP -d 1 2 3 4 5
+fi
+
+# Start polybar
+$HOME/.config/polybar/launch.sh &
+
+
+# Start the polkit-mate authentication agent
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+
+# Start the Xfce power manager
+xfce4-power-manager &
+
+# Set the default cursor to left_ptr
+xsetroot -cursor_name left_ptr &
+
+# Start some nice programs
+#eww daemon &
+picom &
+ukui-window-switch &
+parcellite &
+noisetorch -i &
+solaar -w hide &
+xmodmap ~/.xmodmaprc &
+feh --bg-fill ~/.wallpapers/wallpaper.png
+
+# Wait 10 seconds and then run the bspfloat script to enable floating windows. Redirect error output to ~/.log.bspfloat.txt
+sleep 10 && $HOME/.config/bspwm/scripts/bspfloat floating 5 &> $HOME/.log.bspfloat.txt &

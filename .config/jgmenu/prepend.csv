@@ -1,0 +1,23 @@
+@search,,120,15,150,20,2,left,top,#dcdcdc,#7aa2f7,Menu
+Search,rofi -show drun,/home/cristian/.config/jgmenu/MenuIcons/search.png
+Terminal,alacritty,/home/cristian/.config/jgmenu/MenuIcons/terminal.png
+Web Browser,firefox,/home/cristian/.config/jgmenu/MenuIcons/web-browser.png
+File manager,nautilus,/home/cristian/.config/jgmenu/MenuIcons/file-manager.png
+Text Editor,gedit,/home/cristian/.config/jgmenu/MenuIcons/edit-note.png
+Music Player,spotify,/home/cristian/.config/jgmenu/MenuIcons/music.png
+
+^sep()
+Applications,^checkout(lx-apps),/home/cristian/.config/jgmenu/MenuIcons/applications.png
+Dashboard,eww open-many --toggle background-closer main,/home/cristian/.config/jgmenu/MenuIcons/dashboard.png
+System Menu,~/.config/eww/System-Menu/launch,/home/cristian/.config/jgmenu/MenuIcons/system-menu.png
+^sep()
+Exit,eww open-many --toggle background-closer powermenu,/home/cristian/.config/jgmenu/MenuIcons/exit.png
+BSPWM,^checkout(bspwm),/home/cristian/.config/jgmenu/MenuIcons/bspwm.png
+
+^tag(bspwm)
+Website, firefox https://https://github.com/baskerville/bspwm, /home/cristian/.config/jgmenu/MenuIcons/bspwm.png
+Edit Config, gedit ~/.config/bspwm/bspwmrc, /home/cristian/.config/jgmenu/MenuIcons/edit-note.png
+Restart, bspc wm -r, /home/cristian/.config/jgmenu/MenuIcons/restart.png
+Exit, bspc quit, /home/cristian/.config/jgmenu/MenuIcons/exit.png
+
+^tag(lx-apps)
